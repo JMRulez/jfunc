@@ -20,7 +20,7 @@ public class HttpTriggerFunction {
      * 1. curl -d "HTTP Body" {your host}/api/HttpExample
      * 2. curl "{your host}/api/HttpExample?name=HTTP%20Query"
      */
-    @FunctionName("HttpExample")
+    @FunctionName("jfunc")
     public HttpResponseMessage run(
             @HttpTrigger(
                 name = "req",
@@ -37,7 +37,7 @@ public class HttpTriggerFunction {
         if (name == null) {
             return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
         } else {
-            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+            return request.createResponseBuilder(HttpStatus.OK).body("How Are you " + name).build();
         }
     }
 }
